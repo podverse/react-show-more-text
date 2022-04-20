@@ -24,7 +24,8 @@ class ShowMoreText extends Component {
         expanded: false,
         width: 0,
         keepNewLines: false,
-        truncatedEndingComponent: '... '
+        truncatedEndingComponent: '... ',
+        role: ''
     };
 
     static propTypes = {
@@ -38,7 +39,8 @@ class ShowMoreText extends Component {
         expanded: PropTypes.bool,
         width: PropTypes.number,
         keepNewLines: PropTypes.bool,
-        truncatedEndingComponent: PropTypes.node
+        truncatedEndingComponent: PropTypes.node,
+        role: PropTypes.string
     };
 
     componentDidMount() {
@@ -92,7 +94,8 @@ class ShowMoreText extends Component {
             className,
             width,
             keepNewLines,
-            truncatedEndingComponent
+            truncatedEndingComponent,
+            role
         } = this.props;
 
         const { expanded, truncated } = this.state;
@@ -109,6 +112,7 @@ class ShowMoreText extends Component {
                                 href=''
                                 className={anchorClass}
                                 onClick={this.toggleLines}
+                                role={role}
                             >
                                 {more}
                             </a>
@@ -138,6 +142,7 @@ class ShowMoreText extends Component {
                             href=''
                             className={anchorClass}
                             onClick={this.toggleLines}
+                            role={role}
                         >
                             {less}
                         </a>
